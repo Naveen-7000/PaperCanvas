@@ -1,4 +1,4 @@
-```markdown
+
 # PaperCanvas - Sketchbook Application
 
 PaperCanvas is a collaborative sketchbook application developed using Next.js, Socket.io, React Router, and the HTML5 Canvas API. It allows users to draw and share their sketches in real-time.
@@ -61,4 +61,4 @@ PaperCanvas was built with the help of several open-source libraries and framewo
 ---
 
 Enjoy sketching and collaborating with PaperCanvas!
-```
+
