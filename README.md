@@ -17,21 +17,21 @@ Follow these steps to set up PaperCanvas on your local machine.
 
 1. Clone the repository to your local machine using Git:
 
-   ```bash
+```bash
    git clone https://github.com/Naveen-7000/PaperCanvas.git
-   ```
+```
 
 2. Navigate to the project directory:
 
-   ```bash
+```bash
    cd PaperCanvas
-   ```
+```
 
 3. Install the project dependencies:
 
-   ```bash
+```bash
    npm install
-   ```
+```
 
 ### Running the Application
 
@@ -39,9 +39,9 @@ Once the installation is complete, you can run PaperCanvas locally.
 
 1. Start the development server:
 
-   ```bash
+```bash
    npm run dev
-   ```
+```
 
 2. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to access the PaperCanvas application.
 
