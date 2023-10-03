@@ -50,10 +50,6 @@ Once the installation is complete, you can run PaperCanvas locally.
 - Collaborate in real-time with other users connected to the same sketch.
 - Save and export your sketches as image files.
 
-### Deployment
-
-To deploy PaperCanvas to a production environment, you can use a platform like Vercel, Netlify, or deploy it on your own server. Make sure to set the appropriate environment variables for production deployment.
-
 ### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
