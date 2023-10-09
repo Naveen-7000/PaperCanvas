@@ -6,7 +6,7 @@ import cx from 'classnames';
 const ToolBox = () => {
   const dispatch = useDispatch();
   const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
-  const {color} = useSelector((state) => state.toolbox[activeMenuItem]);
+  const {color,size} = useSelector((state) => state.toolbox[activeMenuItem]);
   const showStrokeToolOption = activeMenuItem === MENU_ITEMS.PENCIL;
   const showBrushToolOption = activeMenuItem === MENU_ITEMS.ERASER || MENU_ITEMS.PENCIL;
   const updateBrushColor = (newColor) => {
@@ -57,6 +57,7 @@ const ToolBox = () => {
         <div className={styles.itemContainer}>
           <input
             type="range"
+            value={size}
             min={1}
             max={10}
             step={1}
