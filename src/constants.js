@@ -11,9 +11,12 @@ const COLORS = {
 const MENU_ITEMS = {
     PENCIL : 'pencil',
     ERASER : 'eraser',
+    SHAPES : 'shapes',
     UNDO : 'undo',
     REDO : 'redo',
+    RESET : 'reset',
     DOWNLOAD : 'download'
 }
+
 
 export {COLORS, MENU_ITEMS};

@@ -1,4 +1,4 @@
-import { COLORS, MENU_ITEMS } from "@/constants";
+import { COLORS, MENU_ITEMS, SHAPE_ITEMS } from "@/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -12,7 +12,8 @@ const initialState = {
   },
   [MENU_ITEMS.UNDO]: {},
   [MENU_ITEMS.REDO]: {},
-  [MENU_ITEMS.DOWNLOAD]: {}
+  [MENU_ITEMS.DOWNLOAD]: {},
+
 };
 
 const toolBoxSlice = createSlice({
@@ -24,7 +25,7 @@ const toolBoxSlice = createSlice({
             },
             changeBrushSize : (state, action) => {
                 state[action.payload.item].size = action.payload.size;
-            }
+            },
     }
 })
 

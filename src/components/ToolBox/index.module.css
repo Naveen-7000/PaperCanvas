@@ -1,26 +1,48 @@
 .toolBoxContainer {
     @apply p-5 absolute top-1/4 left-5 w-64 rounded-md;
-    box-shadow: theme('colors.shadow1');
-    border: 1px solid theme('colors.border1');
+    /* box-shadow: theme('colors.shadow1'); */
+    border: 2px solid theme('colors.border1');
     background-color: theme('colors.background');
 
     .toolItem {
         @apply mb-5;
 
-        .toolText {
-            font-size: 11px;
+        .icon{
             color: theme('colors.text1');
+            font-size: 25px;
+        }
+
+        .toolText {
+            font-size: 14px;
+            font-weight: 600;
+            color: theme('colors.text1');
+        }
+
+        input{
+            width: 100%;
+        }
+
+        input[type="range"]{
+            accent-color: 'white',
         }
 
         .itemContainer {
             @apply flex justify-between mt-2;
-
             .colorBox {
-                @apply h-5 w-5 mr-1 rounded-sm cursor-pointer;
+                @apply h-6 w-6 mr-1 rounded-xl cursor-pointer;
+                border: 0.5px solid theme('colors.border1');
 
                 &:hover, &.active {
-                    border: 1.5px solid theme('colors.border2');
-                    box-shadow: theme('colors.shadow2');
+                    border: 2px solid theme('colors.hover');
+                }
+            }
+            .shapeBox {
+                @apply flex justify-center items-center cursor-pointer h-10 w-10 rounded-md;;
+                 &:hover {
+                     border: 1px solid theme('colors.hover');
+                    }
+                    &.active{
+                    background-color: theme('colors.text2');
                 }
             }
         }

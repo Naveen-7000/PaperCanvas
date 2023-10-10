@@ -4,19 +4,18 @@ import { COLORS, MENU_ITEMS } from "@/constants";
 import { changeBrushSize, changeColor } from "@/slice/toolBoxSlice";
 import cx from "classnames";
 import { socket } from "@/socket";
-
 const ToolBox = () => {
   const dispatch = useDispatch();
   const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
-  const { color, size } = useSelector((state) => state.toolbox[activeMenuItem]);
-  const showStrokeToolOption = activeMenuItem === MENU_ITEMS.PENCIL;
-  const showBrushToolOption =
-    activeMenuItem === MENU_ITEMS.ERASER || MENU_ITEMS.PENCIL;
+  const { color, size} = useSelector((state) => state.toolbox[activeMenuItem]);
+  const showStrokeToolOption = activeMenuItem === MENU_ITEMS.PENCIL ;
+  const showBrushToolOption = activeMenuItem === MENU_ITEMS.ERASER || MENU_ITEMS.PENCIL;
   const updateBrushColor = (newColor) => {
     dispatch(changeColor({ item: activeMenuItem, color: newColor }));
     socket.emit("changeConfig", {
       color:newColor,
       size,
+      shape:null,
     });
   };
   const updateBrushSize = (e) => {
@@ -24,13 +23,16 @@ const ToolBox = () => {
     socket.emit("changeConfig", {
       color,
       size: e.target.value,
+      shape:null,
     });
   };
+
+
   return (
     <div className={styles.toolBoxContainer}>
       {showStrokeToolOption && (
         <div className={styles.toolItem}>
-          <h4 className={styles.toolText}>Stroke Color</h4>
+          <h4 className={styles.toolText}>Stroke color</h4>
           <div className={styles.itemContainer}>
             <div
               className={cx(styles.colorBox, {

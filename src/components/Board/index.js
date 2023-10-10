@@ -13,24 +13,35 @@ const Board = () => {
   const { activeMenuItem, actionMenuItem } = useSelector((state) => state.menu);
   const { color, size } = useSelector((state) => state.toolbox[activeMenuItem]);
 
+
+  // handle any action axcept pencil and eraser here like undo, redo, and download
   useEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
     if (actionMenuItem === MENU_ITEMS.DOWNLOAD) {
+      if (drwaHistory.current.length === 0) {
+        alert("There is nothing on the canvas to download.");
+        dispatch(actionItemClick(null));
+        return; // No history to undo or redo
+      }
       context.globalCompositeOperation = "destination-over";
       context.fillStyle = "white";
       context.fillRect(0, 0, canvas.width, canvas.height);
       const url = canvas.toDataURL();
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "sketch.jpg";
+      anchor.download = `sketch${Math.floor(Math.random()*10)}.jpg`;
       anchor.click();
     } else if (
       actionMenuItem === MENU_ITEMS.UNDO ||
       actionMenuItem === MENU_ITEMS.REDO
     ) {
+      if (drwaHistory.current.length === 0) {
+        return; // No history to undo or redo
+      }
+
       if (historyPointer.current > 0 && actionMenuItem === MENU_ITEMS.UNDO) {
         historyPointer.current -= 1;
       }
@@ -43,10 +54,15 @@ const Board = () => {
       }
       const imageData = drwaHistory.current[historyPointer.current];
       context.putImageData(imageData, 0, 0);
+    }else if(actionMenuItem === MENU_ITEMS.RESET){
+      context.clearRect(0,0,canvas.width,canvas.height);
+      drwaHistory.current = [];
+      historyPointer.current = 0;
     }
     dispatch(actionItemClick(null));
   }, [actionMenuItem, dispatch]);
 
+  // handle the color and size of stroke changes
   useEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
@@ -68,6 +84,7 @@ const Board = () => {
     }
   }, [color, size]);
 
+  // handle the canvas setup befor the component gets painted
   useLayoutEffect(() => {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
