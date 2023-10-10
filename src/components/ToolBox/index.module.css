@@ -1,5 +1,5 @@
 .toolBoxContainer {
-    @apply p-5 absolute top-1/4 left-5 w-64 rounded-md;
+    @apply p-5 absolute top-1/4 left-1 lg:left-5 w-20 lg:w-64 rounded-md;
     /* box-shadow: theme('colors.shadow1'); */
     border: 2px solid theme('colors.border1');
     background-color: theme('colors.background');
@@ -27,22 +27,13 @@
         }
 
         .itemContainer {
-            @apply flex justify-between mt-2;
+            @apply lg:flex lg:justify-between mt-2 items-center;
             .colorBox {
-                @apply h-6 w-6 mr-1 rounded-xl cursor-pointer;
+                @apply h-6 w-6 mr-1 mt-2 lg:mt-0 rounded-xl cursor-pointer;
                 border: 0.5px solid theme('colors.border1');
 
                 &:hover, &.active {
                     border: 2px solid theme('colors.hover');
-                }
-            }
-            .shapeBox {
-                @apply flex justify-center items-center cursor-pointer h-10 w-10 rounded-md;;
-                 &:hover {
-                     border: 1px solid theme('colors.hover');
-                    }
-                    &.active{
-                    background-color: theme('colors.text2');
                 }
             }
         }
